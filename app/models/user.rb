@@ -12,8 +12,8 @@ class User < ActiveRecord::Base
       self.carts.last
     elsif !self.carts.last.present?
       self.carts.create(status: "open")
-      self.save
-      self.carts.last
+      # self.save
+      # self.carts.last
     elsif self.carts.last.status == "submitted"
       nil
     else
