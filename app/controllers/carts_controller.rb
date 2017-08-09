@@ -6,7 +6,7 @@ class CartsController < ApplicationController
   end
 
   def checkout
-    cart = current_user.carts.last
+    cart = current_user.current_cart
     cart.status = "submitted"
     cart.save
     cart.line_items.each do |i|
@@ -15,6 +15,7 @@ class CartsController < ApplicationController
       item.save
     end
     current_user.current_cart = nil
+    current_user.save
     redirect_to cart_path(cart)
   end
 

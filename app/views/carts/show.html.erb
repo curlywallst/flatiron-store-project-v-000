@@ -11,7 +11,6 @@
 <% end %>
 
 <p>Order total: <strong><%= "$#{current_user.carts.last.total.to_f/100}" %></strong> </p>
-
 <% if current_user.carts.last.status != "submitted" %>
   <%= button_to 'Checkout', checkout_path, method: :post %>
 <% end %>

@@ -4,8 +4,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :carts
-  # attr_writer :current_cart
-  has_one :current_cart, :class_name => 'Cart'
+
+  belongs_to :current_cart, :class_name => 'Cart'
+  attr_writer :current_cart_id
 
 
   # def current_cart
