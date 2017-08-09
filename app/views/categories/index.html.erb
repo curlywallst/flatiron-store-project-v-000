@@ -1,3 +1,8 @@
 <% @categories.each do |category| %>
-  <%= @category.title %>
+  <%= link_to category.title, category_path(category) %><br />
+  <% category.items.each do |item| %>
+    <p><%= item.title %> | <%= "$#{item.price.to_f/100}" %> | <%= button_to 'Add to Cart', line_items_path(item_id: item), method: :post %></p>
+  <% end %>
+  <br></br>
+
 <% end %>
