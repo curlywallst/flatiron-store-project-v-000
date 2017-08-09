@@ -15,7 +15,6 @@ class CartsController < ApplicationController
       item.save
     end
     current_user.current_cart = nil
-
     redirect_to cart_path(cart)
   end
 
